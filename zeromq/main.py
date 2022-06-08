@@ -1,7 +1,7 @@
 from gzip import GzipFile
 from io import BytesIO
 from bs4 import BeautifulSoup
-from parser import Parser
+from ndov import Parser
 
 import zmq
 

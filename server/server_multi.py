@@ -1,9 +1,8 @@
 import socket
-import time
-import threading
 
 HOST = "127.0.0.1"
 PORT = 1234
+
 
 
 def server():
@@ -16,12 +15,3 @@ def server():
 
         with conn:
             print(f"[SERVER] New client connected: {addr}\n")
-
-            train_id = conn.recv(1024)
-            print(train_id)
-
-            time.sleep(5)
-
-
-            conn.send(b'Er is een ongeval. Hulptrein is onderweg')
-            conn.close()

@@ -18,7 +18,7 @@ function SearchByTrainNumber(TrainNumber) {
     let result = []
     if (TrainNumber.length > 1 && TrainNumber.length < 6) {
         result[0] = 200;
-        result[1] = "Meldingen Trein: '" + TrainNumber.toString() + "'";
+        result[1] = "Meldingen voor trein: '" + TrainNumber.toString() + "'";
         random = Math.floor(Math.random() * 2);
         random = 1;
         switch (random) {

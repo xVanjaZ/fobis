@@ -15,11 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //TODO: replace by backend
 function SearchByTrainNumber(TrainNumber) {
-    var result = []
+    let result = []
     if (TrainNumber.length > 1 && TrainNumber.length < 6) {
         result[0] = 200;
         result[1] = "Meldingen Trein: '" + TrainNumber.toString() + "'";
         random = Math.floor(Math.random() * 2);
+        random = 1;
         switch (random) {
             case 0:
                 result[2] = false;
@@ -27,7 +28,7 @@ function SearchByTrainNumber(TrainNumber) {
                 break;
             case 1:
                 result[2] = true;
-                result[3] = "Volgend station arriveert deze trein op spoor 8 IPV. 12 ";
+                result[3] = "De trein heeft een technische storing. Een hulptrein is onderweg";
                 break;
             case 2:
                 result[2] = true;
@@ -45,11 +46,12 @@ function SearchByTrainNumber(TrainNumber) {
 
 //TODO: replace by backend
 function SearchByCoordinates(latitude, longitude) {
-    var result = []
+    let result = []
     if (latitude !== null && longitude !== null) {
         result[0] = 200;
         result[1] = "Meldingen Trein: '" + Math.floor(Math.random() * 9999).toString() + "'";
         random = Math.floor(Math.random() * 2);
+        random = 1;
         switch (random) {
             case 0:
                 result[2] = false;
@@ -57,7 +59,7 @@ function SearchByCoordinates(latitude, longitude) {
                 break;
             case 1:
                 result[2] = true;
-                result[3] = "Volgend station arriveert deze trein op spoor 8 IPV. 12 ";
+                result[3] = "De trein heeft een technische storing. Een hulptrein is onderweg";
                 break;
             case 2:
                 result[2] = true;
@@ -74,10 +76,10 @@ function SearchByCoordinates(latitude, longitude) {
 }
 
 function SendTrainNumber() {
-    var Treinnummer = document.getElementById("TrainNumber").value;
-    var train = SearchByTrainNumber(Treinnummer);
-    var NotificationTitle = document.getElementById("NotificationTitle");
-    var NotificationText = document.getElementById("NotificationText");
+    let Treinnummer = document.getElementById("TrainNumber").value;
+    let train = SearchByTrainNumber(Treinnummer);
+    let NotificationTitle = document.getElementById("NotificationTitle");
+    let NotificationText = document.getElementById("NotificationText");
     console.log(train)
     if (train[0] === 200) {
         NotificationTitle.innerText = train[1];
@@ -92,11 +94,11 @@ function SendTrainNumber() {
 
 function SendCoordinates() {
     confirm("Please allow us to use your location");
-    var x = 123;
-    var y = 321;
-    var NotificationTitle = document.getElementById("NotificationTitle");
-    var NotificationText = document.getElementById("NotificationText");
-    var train = SearchByCoordinates(x, y);
+    let x = 123;
+    let y = 321;
+    let NotificationTitle = document.getElementById("NotificationTitle");
+    let NotificationText = document.getElementById("NotificationText");
+    let train = SearchByCoordinates(x, y);
     if (train[0] === 200) {
         NotificationTitle.innerText = train[1];
         NotificationText.innerText = train[3];
